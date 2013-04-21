@@ -58,15 +58,16 @@ SYMBOL_MARS(DINVARIANT,      FLfunc,FREGSAVED,"D9invariant12_d_invariantFC6Objec
 SYMBOL_MARS(_DINVARIANT,     FLfunc,FREGSAVED,"_D9invariant12_d_invariantFC6ObjectZv", 0, tsdlib) \
 SYMBOL_MARS(MEMCPY,          FLfunc,FREGSAVED,"memcpy",    0, t) \
 SYMBOL_MARS(MEMSET8,         FLfunc,FREGSAVED,"memset",    0, t) \
-SYMBOL_MARS(MEMSET16,        FLfunc,FREGSAVED,"_memset16", 0, t) \
-SYMBOL_MARS(MEMSET32,        FLfunc,FREGSAVED,"_memset32", 0, t) \
-SYMBOL_MARS(MEMSET64,        FLfunc,FREGSAVED,"_memset64", 0, t) \
-SYMBOL_MARS(MEMSET128,       FLfunc,FREGSAVED,"_memset128",0, t) \
-SYMBOL_MARS(MEMSET128ii,     FLfunc,FREGSAVED,"_memset128ii",0, t) \
-SYMBOL_MARS(MEMSET80,        FLfunc,FREGSAVED,"_memset80", 0, t) \
-SYMBOL_MARS(MEMSET160,       FLfunc,FREGSAVED,"_memset160",0, t) \
+SYMBOL_MARS(MEMSET16i,       FLfunc,FREGSAVED,"_memset16i", 0, t) \
+SYMBOL_MARS(MEMSET32i,       FLfunc,FREGSAVED,"_memset32i", 0, t) \
+SYMBOL_MARS(MEMSET64i,       FLfunc,FREGSAVED,"_memset64i", 0, t) \
+SYMBOL_MARS(MEMSET128i,      FLfunc,FREGSAVED,"_memset128i",0, t) \
 SYMBOL_MARS(MEMSETFLOAT,     FLfunc,FREGSAVED,"_memsetFloat", 0, t) \
+SYMBOL_MARS(MEMSETCFLOAT,    FLfunc,FREGSAVED,"_memsetCfloat", 0, t) \
 SYMBOL_MARS(MEMSETDOUBLE,    FLfunc,FREGSAVED,"_memsetDouble", 0, t) \
+SYMBOL_MARS(MEMSETCDOUBLE,   FLfunc,FREGSAVED,"_memsetCdouble", 0, t) \
+SYMBOL_MARS(MEMSETREAL,      FLfunc,FREGSAVED,"_memsetReal", 0, t) \
+SYMBOL_MARS(MEMSETCREAL,     FLfunc,FREGSAVED,"_memsetCreal",0, t) \
 SYMBOL_MARS(MEMSETN,         FLfunc,FREGSAVED,"_memsetn",  0, t) \
 SYMBOL_MARS(MODULO,          FLfunc,FREGSAVED,"_modulo",   0, t) \
 SYMBOL_MARS(MONITORENTER,  FLfunc,FREGSAVED,"_d_monitorenter",0, t) \
