@@ -641,25 +641,26 @@ Lagain:
     {
         case Tfloat80:
         case Timaginary80:
-            r = RTLSYM_MEMSET80;
+            r = RTLSYM_MEMSETREAL;
             break;
         case Tcomplex80:
-            r = RTLSYM_MEMSET160;
+            r = RTLSYM_MEMSETCREAL;
             break;
-        case Tcomplex64:
-            r = RTLSYM_MEMSET128;
-            break;
+
         case Tfloat32:
         case Timaginary32:
-            if (I32)
-                goto Ldefault;          // legacy binary compatibility
             r = RTLSYM_MEMSETFLOAT;
             break;
+        case Tcomplex32:
+	    r = RTLSYM_MEMSETCFLOAT;
+	    break;
+
         case Tfloat64:
         case Timaginary64:
-            if (I32)
-                goto Ldefault;          // legacy binary compatibility
             r = RTLSYM_MEMSETDOUBLE;
+            break;
+        case Tcomplex64:
+            r = RTLSYM_MEMSETCDOUBLE;
             break;
 
         case Tstruct:
@@ -680,11 +681,11 @@ Lagain:
         Ldefault:
             switch (sz)
             {
-                case 1:      r = RTLSYM_MEMSET8;    break;
-                case 2:      r = RTLSYM_MEMSET16;   break;
-                case 4:      r = RTLSYM_MEMSET32;   break;
-                case 8:      r = RTLSYM_MEMSET64;   break;
-                case 16:     r = I64 ? RTLSYM_MEMSET128ii : RTLSYM_MEMSET128; break;
+                case 1:      r = RTLSYM_MEMSET8i;    break;
+                case 2:      r = RTLSYM_MEMSET16i;   break;
+                case 4:      r = RTLSYM_MEMSET32i;   break;
+                case 8:      r = RTLSYM_MEMSET64i;   break;
+                case 16:     r = RTLSYM_MEMSET128i; break;
                 default:     r = RTLSYM_MEMSETN;    break;
             }
 
@@ -735,7 +736,7 @@ Lagain:
     if (sz > 1 && sz <= 8 &&
         evalue->Eoper == OPconst && el_allbits(evalue, 0))
     {
-        r = RTLSYM_MEMSET8;
+        r = RTLSYM_MEMSET8i;
         edim = el_bin(OPmul, TYsize_t, edim, el_long(TYsize_t, sz));
     }
 
@@ -747,7 +748,7 @@ Lagain:
     evalue = useOPstrpar(evalue);
 
     // Be careful about parameter side effect ordering
-    if (r == RTLSYM_MEMSET8)
+    if (r == RTLSYM_MEMSET8i)
     {
         e = el_param(edim, evalue);
         e = el_bin(OPmemset,TYnptr,eptr,e);
