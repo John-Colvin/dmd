@@ -663,6 +663,13 @@ Lagain:
             r = RTLSYM_MEMSETCDOUBLE;
             break;
 
+        case Tvector:
+	    if (sz == 16)
+	        r = RTLSYM_MEMSETVEC128;
+	    else
+	        r = RTLSYM_MEMSETVEC256; //ready for AVX support
+	    break;
+
         case Tstruct:
             if (I32)
                 goto Ldefault;
