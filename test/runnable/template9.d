@@ -4708,6 +4708,26 @@ void test15152()
 }
 
 /******************************************/
+// 15156
+
+// 15156
+auto f15116a(T)(string s, string arg2) { return 1; }
+auto f15116b(T)(int    i, string arg2) { return 2; }
+
+template bish15116(T)
+{
+    alias bish15116 = f15116a!T;
+    alias bish15116 = f15116b!T;
+}
+
+void test15116()
+{
+    alias func = bish15116!string;
+    assert(func("", "") == 1);
+    assert(func(12, "") == 2);
+}
+
+/******************************************/
 
 int main()
 {
@@ -4820,6 +4840,7 @@ int main()
     test14836();
     test14735();
     test14802();
+    test15116();
 
     printf("Success\n");
     return 0;
