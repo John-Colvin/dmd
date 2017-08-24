@@ -2,7 +2,7 @@
 
 set -uexo pipefail
 
-N=2
+N=4
 
 # use faster ld.gold linker on linux
 if [ "$TRAVIS_OS_NAME" == "linux" ]; then
