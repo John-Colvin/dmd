@@ -2,7 +2,8 @@
 
 set -uexo pipefail
 
-N=2
+N=4
+N_UNITTEST_RELEASE=2 #Otherwise we run out of memory on travis
 
 # use faster ld.gold linker on linux
 if [ "$TRAVIS_OS_NAME" == "linux" ]; then
@@ -56,7 +57,7 @@ test() {
     #See also: https://github.com/dlang/dmd/pull/6999
     #test_dub_package
     make -j$N -C ../druntime -f posix.mak MODEL=$MODEL unittest
-    make -j$N -C ../phobos -f posix.mak MODEL=$MODEL unittest
+    make -j$N_UNITTEST_RELEASE -C ../phobos -f posix.mak MODEL=$MODEL unittest
     test_dmd
 }
 
